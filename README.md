@@ -31,9 +31,26 @@ turned back into what it came from.
 
 ## Current status
 
-**Empty on purpose.** The publishing path is being built. When the first anchor lands, this section
-will say so and name the date it starts from, rather than quietly beginning as though it had always
-been running.
+**Empty, and armed.** The publishing path is built: a scheduled job in this repository reads one
+closed day from our server, recomputes the day's root from its own fingerprint list with its own
+independent implementation, refuses to publish if the two disagree, and refuses to rewrite or
+reach behind any day it has already published. It has never had anything to publish, because
+nothing in the app has sent a fingerprint yet.
+
+When the first anchor lands, this section will say so and name the date the record starts from,
+rather than quietly beginning as though it had always been running.
+
+## What you will find here, once it starts
+
+| Path | What it holds |
+|---|---|
+| `anchors/YYYY-MM-DD.json` | That day's root hash, the scheme, and how many fingerprints it covers. |
+| `leaves/YYYY-MM-DD.txt` | Every fingerprint in that day's tree, one per line, sorted. |
+| `.anchor-start` | The first day this record covers. Nothing before it will ever be published. |
+
+The leaf list is here so that you do not have to trust us or our server for any part of the
+check. With it you can rebuild that day's root yourself and confirm your own receipt is inside
+it, using nothing but the file and a SHA-256 implementation.
 
 Publishing a partial or backdated history would defeat the only thing this repository is for, so
 the record starts on the day it starts, and the gap before it is stated rather than hidden.

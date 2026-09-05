@@ -1,0 +1,68 @@
+# Publish one day's anchor, once, the morning after that day closed.
+#
+# WHY THE PUBLISHER LIVES HERE AND NOT ON OUR SERVER. The whole value of this repository is
+# that its commit dates come from GitHub rather than from us. If our server held a token that
+# could write here, then anyone who compromised our server could rewrite the record, and the
+# third-party timestamp would be worth exactly as much as our own word. The Action uses the
+# repository's own GITHUB_TOKEN, which never leaves GitHub and cannot reach any other
+# repository. Our server is only ever READ from, over plain unauthenticated HTTPS.
+#
+# WHY TWICE A DAY. The first run is the honest one, twenty minutes after the UTC day closes.
+# The second is a retry for the case where our server was restarting at that moment. The
+# script refuses to rewrite a day it has already published, so the retry is a no-op whenever
+# the first run worked.
+
+name: Publish the daily anchor
+
+on:
+  schedule:
+    # 00:20 UTC: the UTC day just closed, so yesterday now has a final root.
+    - cron: '20 0 * * *'
+    # 07:00 UTC: a retry, and a no-op if the first run already published.
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'The UTC day to publish (YYYY-MM-DD). Defaults to yesterday.'
+        required: false
+        type: string
+
+# The only permission this workflow needs, and it is scoped to this repository alone.
+permissions:
+  contents: write
+
+# Two runs writing the same file would race. One at a time, and never cancel a run that may
+# be part-way through writing.
+concurrency:
+  group: publish-anchor
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch and verify the day
+        env:
+          OS_ANCHOR_API: https://api.orderedstrength.com
+          ANCHOR_DATE: ${{ inputs.date }}
+        run: node scripts/publish-anchor.mjs
+
+      - name: Record the anchor
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Nothing to record: no new anchor was written."
+            exit 0
+          fi
+          git config user.name  "OrderedStrength anchor"
+          git config user.email "anchor@orderedstrength.com"
+          # Explicit paths. This workflow may only ever add anchors, leaves and the start floor.
+          git add anchors leaves .anchor-start
+          DAY=$(git diff --cached --name-only -- anchors | head -1 | xargs -I@ basename @ .json)
+          git commit -m "anchor: $DAY"
+          git push
