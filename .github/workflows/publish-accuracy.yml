@@ -1,0 +1,69 @@
+# Grade one closed month, once, and never again.
+#
+# The sibling workflow publishes a day's fingerprints, which proves predictions existed before
+# their results. This one publishes whether those predictions were right.
+#
+# WHY THE SECOND OF THE MONTH, AND NOT THE FIRST. A prediction sealed on the last evening of a
+# month is anchored the following morning, and a phone that was asleep re-sends for as long as it
+# takes. Grading at 02:00 UTC on the 2nd gives the day publisher a full cycle to land the last
+# day of the month first, so the month's own tail is anchored before anything is graded against
+# it. A reveal that arrives later still lands in its sealed month, and the script refuses to
+# rewrite a published month, so a straggler is disclosed rather than smuggled in.
+#
+# 🔒 THE SCRIPT REFUSES MORE THAN IT WRITES, and each refusal is a promise on the website: never
+# overwrite a published month, never grade an open one, never count a prediction that is not
+# inside a day this repository already published, never grade a reveal that does not recompute.
+
+name: Publish the monthly accuracy
+
+on:
+  schedule:
+    # 02:00 UTC on the 2nd. GitHub runs a scheduled job when it has capacity rather than at the
+    # minute in this line, and the sibling workflow has measured that lateness at about 45
+    # minutes. An hour of drift changes nothing here: the month it grades closed two days ago.
+    - cron: '0 2 2 * *'
+  workflow_dispatch:
+    inputs:
+      month:
+        description: 'The month to grade (YYYY-MM). Defaults to last month.'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-accuracy
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          # Node 24 is LTS to 2028-04-30, and this job runs unattended once a month, which is the
+          # worst possible place for a deprecation nobody is watching. Re-pin before then.
+          node-version: '24'
+
+      - name: Grade the month
+        env:
+          OS_ANCHOR_API: https://api.orderedstrength.com
+          ACCURACY_MONTH: ${{ inputs.month }}
+        run: node scripts/publish-accuracy.mjs
+
+      - name: Record it
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Nothing to record: no month was written."
+            exit 0
+          fi
+          git config user.name  "OrderedStrength accuracy"
+          git config user.email "accuracy@orderedstrength.com"
+          # Explicit paths. This workflow may only ever add graded months.
+          git add accuracy
+          MONTH=$(git diff --cached --name-only -- accuracy | head -1 | xargs -I@ basename @ .json)
+          git commit -m "accuracy: $MONTH"
+          git push
