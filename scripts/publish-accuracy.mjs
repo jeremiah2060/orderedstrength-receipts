@@ -36,6 +36,7 @@
 import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
+import { promiseVerdict, PROMISE_BANDS } from './promise-verdict.mjs';
 
 const API = process.env.OS_ANCHOR_API || 'https://api.orderedstrength.com';
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
@@ -43,6 +44,8 @@ const SCHEME = 'os-reveal-v1-sha256';
 const HEX64 = /^[0-9a-f]{64}$/;
 
 function fail(message) { console.error(`REFUSED: ${message}`); process.exit(1); }
+
+// PROTOCOL 2 (promises): graded in `promise-verdict.mjs`, from the facts, never from the phone's verdict.
 function done(message) { console.log(message); process.exit(0); }
 
 // ── The commitment encoding, restated independently ─────────────────────────
@@ -110,6 +113,9 @@ if (body.reveals.length === 0) done(`Nothing to publish for ${month}: no athlete
 const calls = [];
 let within = 0, ungradeable = 0, unanchored = 0, mismatched = 0;
 const athletes = new Set();
+const promises = [];
+let promisesUntested = 0, promiseVerdictsDisagreed = 0;
+const promiseAthletes = new Set();
 
 for (const r of body.reveals) {
   if (!r || !Array.isArray(r.fields) || !HEX64.test(String(r.nonce || '')) ||
@@ -122,6 +128,18 @@ for (const r of body.reveals) {
   if (!day) { unanchored++; continue; }
 
   const field = (k) => (r.fields.find(f => f.key === k) || {}).value;
+  if (field('protocol') === '2') {
+    const verdict = promiseVerdict(field, r.outcome);
+    if (!verdict) { promisesUntested++; continue; }
+    // The phone's verdict is recorded beside ours and never used: a disagreement is published, not hidden.
+    if (String(r.actual) !== (verdict.kept ? '1' : '0')) promiseVerdictsDisagreed++;
+    promiseAthletes.add(r.athlete);
+    promises.push({
+      commitment: r.commitment, anchoredIn: day, fields: r.fields, nonce: r.nonce,
+      outcome: r.outcome, statedPercent: verdict.stated, kept: verdict.kept,
+    });
+    continue;
+  }
   const low = Number(field('bandLowKg'));
   const high = Number(field('bandHighKg'));
   const actual = Number(r.actual);
@@ -141,10 +159,23 @@ for (const r of body.reveals) {
   });
 }
 
-if (calls.length === 0) {
+if (calls.length === 0 && promises.length === 0) {
   done(`Nothing to publish for ${month}: no reveal could be graded ` +
-       `(${unanchored} not anchored, ${mismatched} did not recompute, ${ungradeable} malformed).`);
+       `(${unanchored} not anchored, ${mismatched} did not recompute, ${ungradeable} malformed, ` +
+       `${promisesUntested} promises untested).`);
 }
+
+// Calibration: for each band of stated sureness, how many promises were graded and how many came true.
+const promiseCalibration = PROMISE_BANDS.map(([lo, hi]) => {
+  const mine = promises.filter(p => p.statedPercent >= lo && p.statedPercent <= hi);
+  return {
+    stated: `${lo}-${hi}`,
+    graded: mine.length,
+    kept: mine.filter(p => p.kept).length,
+    // The mean sureness actually stated inside the band, so the comparison is exact, not the band's middle.
+    meanStated: mine.length ? Number((mine.reduce((a, p) => a + p.statedPercent, 0) / mine.length).toFixed(2)) : null,
+  };
+});
 
 const document = {
   month,
@@ -153,18 +184,27 @@ const document = {
   within,
   // The rate, stated to four decimals so it can be reproduced exactly rather than to a rounded
   // percentage a reader cannot check.
-  rate: Number((within / calls.length).toFixed(4)),
+  rate: calls.length ? Number((within / calls.length).toFixed(4)) : null,
   // 🔒 NEVER OMITTED. See the header: the rate without this number reads as a crowd.
   athletes: athletes.size,
   // Stated so nobody has to ask what was thrown away and why.
-  notGraded: { unanchored, didNotRecompute: mismatched, malformed: ungradeable },
+  notGraded: { unanchored, didNotRecompute: mismatched, malformed: ungradeable, promisesUntested },
+  // PROTOCOL 2. Absent-by-zero is still stated, so a month without promises says so.
+  promises: {
+    graded: promises.length,
+    kept: promises.filter(p => p.kept).length,
+    athletes: promiseAthletes.size,
+    calibration: promiseCalibration,
+    phoneVerdictsThatDisagreedWithThisGrading: promiseVerdictsDisagreed,
+  },
 };
 
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, JSON.stringify(document, null, 2) + '\n');
 // The graded calls themselves, so the rate above can be recomputed by anyone, including the
 // fingerprint check against this repository's own published days.
-fs.writeFileSync(callsPath, JSON.stringify({ month, scheme: SCHEME, calls }, null, 2) + '\n');
+fs.writeFileSync(callsPath, JSON.stringify({ month, scheme: SCHEME, calls, promises }, null, 2) + '\n');
 
 console.log(`Published ${month}: ${within} of ${calls.length} inside the band ` +
-            `(${(document.rate * 100).toFixed(1)}%), ${athletes.size} athlete(s).`);
+            `(${calls.length ? (document.rate * 100).toFixed(1) : '0.0'}%), ${athletes.size} athlete(s); ` +
+            `${document.promises.kept} of ${promises.length} promises kept.`);
