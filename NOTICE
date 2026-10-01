@@ -1,0 +1,6 @@
+OrderedStrength receipts
+Copyright 2026 Jeremiah Tachiwona, OrderedStrength
+
+This repository holds the daily fingerprints of the predictions OrderedStrength seals,
+the monthly grades, and the scripts that publish and check them.
+The OrderedStrength app itself is not part of this repository and is not covered by this license.

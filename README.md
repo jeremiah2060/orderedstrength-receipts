@@ -100,3 +100,17 @@ browser for a receipt you paste.
 
 Publishing a partial or backdated history would defeat the only thing this repository is for, so
 the record starts on the day it starts, and the gap before it is stated rather than hidden.
+
+## License
+
+Everything in this repository is free to use under the [Apache License 2.0](LICENSE):
+the fingerprints, the monthly grades, and the scripts that publish and check them. You may read,
+run, copy, change and share them, as long as you keep the copyright line in [NOTICE](NOTICE) and
+the license with them. There is no warranty.
+
+We chose this on purpose. A record is only worth something if strangers can check it, so anyone may
+run these scripts on their own computer, or write their own checker from the rules above.
+
+The OrderedStrength app is not in this repository, and this license does not cover it.
+
+Copyright 2026 Jeremiah Tachiwona, OrderedStrength.
