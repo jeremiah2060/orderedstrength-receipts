@@ -116,6 +116,13 @@ const athletes = new Set();
 const promises = [];
 let promisesUntested = 0, promiseVerdictsDisagreed = 0;
 const promiseAthletes = new Set();
+// PROTOCOL 3 (2026-10-11): calls Jerry DECLINED to make (a lift he had never seen, a bodyweight lift,
+// a return after more than two weeks, a deload day). Counted by reason, never graded: no range was
+// stated. They exist so a month cannot look better by quietly leaving the hard calls out.
+const DECLINE_REASONS = new Set(['neverSeen', 'bodyweight', 'longGap', 'deload', 'unknownLoad']);
+const declinedCalls = [];
+const declinedByReason = {};
+let declinesMalformed = 0;
 
 for (const r of body.reveals) {
   if (!r || !Array.isArray(r.fields) || !HEX64.test(String(r.nonce || '')) ||
@@ -128,6 +135,16 @@ for (const r of body.reveals) {
   if (!day) { unanchored++; continue; }
 
   const field = (k) => (r.fields.find(f => f.key === k) || {}).value;
+  if (field('protocol') === '3') {
+    const reason = field('reason');
+    if (field('kind') !== 'session-declined' || !DECLINE_REASONS.has(reason) || String(r.actual) !== '0' ||
+        r.fields.some(f => f.key === 'bandLowKg' || f.key === 'bandHighKg')) {
+      declinesMalformed++; continue;
+    }
+    declinedByReason[reason] = (declinedByReason[reason] || 0) + 1;
+    declinedCalls.push({ commitment: r.commitment, anchoredIn: day, fields: r.fields, nonce: r.nonce, reason });
+    continue;
+  }
   if (field('protocol') === '2') {
     const verdict = promiseVerdict(field, r.outcome);
     if (!verdict) { promisesUntested++; continue; }
@@ -159,7 +176,7 @@ for (const r of body.reveals) {
   });
 }
 
-if (calls.length === 0 && promises.length === 0) {
+if (calls.length === 0 && promises.length === 0 && declinedCalls.length === 0) {
   done(`Nothing to publish for ${month}: no reveal could be graded ` +
        `(${unanchored} not anchored, ${mismatched} did not recompute, ${ungradeable} malformed, ` +
        `${promisesUntested} promises untested).`);
@@ -188,7 +205,9 @@ const document = {
   // 🔒 NEVER OMITTED. See the header: the rate without this number reads as a crowd.
   athletes: athletes.size,
   // Stated so nobody has to ask what was thrown away and why.
-  notGraded: { unanchored, didNotRecompute: mismatched, malformed: ungradeable, promisesUntested },
+  notGraded: { unanchored, didNotRecompute: mismatched, malformed: ungradeable, promisesUntested, declinesMalformed },
+  // PROTOCOL 3. The calls Jerry declined to make, by reason. Absent-by-zero is still stated.
+  declined: { total: declinedCalls.length, byReason: declinedByReason },
   // PROTOCOL 2. Absent-by-zero is still stated, so a month without promises says so.
   promises: {
     graded: promises.length,
@@ -203,8 +222,8 @@ fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, JSON.stringify(document, null, 2) + '\n');
 // The graded calls themselves, so the rate above can be recomputed by anyone, including the
 // fingerprint check against this repository's own published days.
-fs.writeFileSync(callsPath, JSON.stringify({ month, scheme: SCHEME, calls, promises }, null, 2) + '\n');
+fs.writeFileSync(callsPath, JSON.stringify({ month, scheme: SCHEME, calls, promises, declinedCalls }, null, 2) + '\n');
 
 console.log(`Published ${month}: ${within} of ${calls.length} inside the band ` +
             `(${calls.length ? (document.rate * 100).toFixed(1) : '0.0'}%), ${athletes.size} athlete(s); ` +
-            `${document.promises.kept} of ${promises.length} promises kept.`);
+            `${document.promises.kept} of ${promises.length} promises kept; ${declinedCalls.length} calls declined.`);

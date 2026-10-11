@@ -67,11 +67,27 @@ const orphan = reveal({ low: '1000000', high: '1100000', actual: '1000000', athl
 const edited = reveal({ low: '1000000', high: '1100000', actual: '1000000', athlete: who('e'), nonce: n(6) });
 edited.fields = edited.fields.map(f => (f.key === 'bandLowKg' ? { key: f.key, value: '1' } : f));
 
+// PROTOCOL 3: calls Jerry declined to make. Counted by reason, never graded.
+function decline({ reason, actual = '0', athlete, nonce, band = false }) {
+  const fields = [
+    { key: 'protocol', value: '3' }, { key: 'kind', value: 'session-declined' },
+    { key: 'exercise', value: 'Goblet Squat' }, { key: 'reason', value: reason },
+    ...(band ? [{ key: 'bandLowKg', value: '500000' }] : []),
+    { key: 'sealedFor', value: sealedFor },
+  ];
+  return { fields, nonce, commitment: digest(fields, nonce), actual, athlete };
+}
+const declinedNew = decline({ reason: 'neverSeen', athlete: who('a'), nonce: n(7) });
+const declinedGap = decline({ reason: 'longGap', athlete: who('b'), nonce: n(8) });
+// A "decline" that claims a result, and one that states a range: neither is a decline.
+const declinedWithResult = decline({ reason: 'deload', actual: '1000000', athlete: who('c'), nonce: n(9) });
+const declinedWithBand = decline({ reason: 'deload', athlete: who('c'), nonce: n(10), band: true });
+
 const server = createServer((req, res) => {
   if (req.url === `/api/v1/record/month/${MONTH}`) {
     res.writeHead(200, { 'content-type': 'application/json' });
     return res.end(JSON.stringify({ month: MONTH, count: 6, athletes: 5,
-      reveals: [hit1, hit2, hit3, miss, orphan, edited] }));
+      reveals: [hit1, hit2, hit3, miss, orphan, edited, declinedNew, declinedGap, declinedWithResult, declinedWithBand] }));
   }
   res.writeHead(404); res.end();
 });
@@ -82,7 +98,8 @@ fs.rmSync(path.join(WORK, 'accuracy'), { recursive: true, force: true });
 fs.mkdirSync(path.join(WORK, 'leaves'), { recursive: true });
 // One published day holding every fingerprint except the orphan's.
 fs.writeFileSync(path.join(WORK, 'leaves', `${MONTH}-06.txt`),
-  [hit1, hit2, hit3, miss, edited].map(r => r.commitment).sort().join('\n') + '\n');
+  [hit1, hit2, hit3, miss, edited, declinedNew, declinedGap, declinedWithResult, declinedWithBand]
+    .map(r => r.commitment).sort().join('\n') + '\n');
 
 // 🔒 ASYNC, BECAUSE THE FAKE API LIVES IN THIS PROCESS. A blocking child cannot be answered by a
 // blocked parent: the first draft used execFileSync and deadlocked for two minutes.
@@ -109,6 +126,14 @@ check('every graded call is published so a stranger can redo it',
   calls.calls.length === 4 && calls.calls.every(c => c.nonce && c.fields && c.anchoredIn === `${MONTH}-06`));
 check('the unanchored one is absent from the published calls',
   !calls.calls.some(c => c.commitment === orphan.commitment));
+
+check('declined calls are counted by reason and never graded',
+  doc.declined.total === 2 && doc.declined.byReason.neverSeen === 1 && doc.declined.byReason.longGap === 1 &&
+  doc.graded === 4);
+check('a decline that claims a result or states a range is disclosed as malformed, never counted',
+  doc.notGraded.declinesMalformed === 2);
+check('every declined call is published so a stranger can check it',
+  calls.declinedCalls.length === 2 && calls.declinedCalls.every(c => c.nonce && c.anchoredIn === `${MONTH}-06`));
 
 const before = fs.readFileSync(path.join(WORK, 'accuracy', `${MONTH}.json`), 'utf8');
 const second = await run(MONTH);
