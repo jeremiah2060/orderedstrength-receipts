@@ -1,0 +1,61 @@
+{
+  "month": "2026-10",
+  "scheme": "os-reveal-v1-sha256",
+  "graded": 61,
+  "within": 47,
+  "rate": 0.7705,
+  "athletes": 2,
+  "notGraded": {
+    "unanchored": 0,
+    "didNotRecompute": 0,
+    "malformed": 0,
+    "promisesUntested": 0,
+    "declinesMalformed": 0
+  },
+  "declined": {
+    "total": 13,
+    "byReason": {
+      "deload": 8,
+      "longGap": 4,
+      "neverSeen": 1
+    }
+  },
+  "promises": {
+    "graded": 2,
+    "kept": 1,
+    "athletes": 1,
+    "calibration": [
+      {
+        "stated": "50-59",
+        "graded": 0,
+        "kept": 0,
+        "meanStated": null
+      },
+      {
+        "stated": "60-69",
+        "graded": 1,
+        "kept": 1,
+        "meanStated": 62
+      },
+      {
+        "stated": "70-79",
+        "graded": 1,
+        "kept": 0,
+        "meanStated": 77
+      },
+      {
+        "stated": "80-89",
+        "graded": 0,
+        "kept": 0,
+        "meanStated": null
+      },
+      {
+        "stated": "90-99",
+        "graded": 0,
+        "kept": 0,
+        "meanStated": null
+      }
+    ],
+    "phoneVerdictsThatDisagreedWithThisGrading": 0
+  }
+}

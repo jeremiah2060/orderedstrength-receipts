@@ -1,0 +1,2497 @@
+{
+  "month": "2026-10",
+  "scheme": "os-reveal-v1-sha256",
+  "calls": [
+    {
+      "commitment": "00b15a67e33e45e1906de9c78478b5966d7dbaf8648bbac1daec00a124382e11",
+      "anchoredIn": "2026-10-07",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Seated Cable Row"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "250317"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "494259"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "379886"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791413915"
+        }
+      ],
+      "nonce": "3aed7a1b83a10a067d9397848075e0156784f6c3f70911df986a5fe4152a8e5e",
+      "actual": "410667",
+      "within": true
+    },
+    {
+      "commitment": "014fb4bf51104fab168945705acf4d1ea50a3e6edf8e73b0cdf001ae78af2620",
+      "anchoredIn": "2026-10-15",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Seated Cable Row"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "362353"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "458980"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "379886"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792105572"
+        }
+      ],
+      "nonce": "710224d776a7ee8aecdd8bfa3d0e1ae1a9846ca71f673d3ce99fe9536fdf426b",
+      "actual": "388319",
+      "within": true
+    },
+    {
+      "commitment": "0462ba8c725e3d2ecbbeb5cc58c50aa3ed1770cc13d5b8a8fdf1d1deb91742cb",
+      "anchoredIn": "2026-10-20",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Incline Dumbbell Press"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "541463"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "658537"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "600000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792537162"
+        }
+      ],
+      "nonce": "baeaa8952e7cef395877ca7ca89cd0f26eadc39fa0eba71411c5a073dc450fef",
+      "actual": "498333",
+      "within": false
+    },
+    {
+      "commitment": "06c4b104d71d4390d197e47d2155ee4630a58387038dd38a2011c4fc10eddd99",
+      "anchoredIn": "2026-10-01",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Seated Dumbbell Lateral Raise"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "73152"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "86592"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "78333"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1790895482"
+        }
+      ],
+      "nonce": "191982b4d2259914e37ec7981d0aeb7285776563f5c561573228c005950bb10a",
+      "actual": "86667",
+      "within": false
+    },
+    {
+      "commitment": "085840cab8167df3147608d3030479a08939127d317270f4a7bec1d1f03cbe91",
+      "anchoredIn": "2026-10-09",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Front Foot Elevated Reverse Lunge (Dumbbell)"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "115554"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "173417"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "140000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791583270"
+        }
+      ],
+      "nonce": "d75ab348a0011b0c8a0387a51bab4c433cd248ebb60fb9e0a7761e7615cf02c8",
+      "actual": "173333",
+      "within": true
+    },
+    {
+      "commitment": "120303711689c79fac67122f9416d9bb9bb467afc0b5ff3543432f8bf7ade900",
+      "anchoredIn": "2026-10-07",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Face Pull"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "596319"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "875681"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "736000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791413958"
+        }
+      ],
+      "nonce": "f547c9c706173caec0261ff381867f200700d2758a3ec88c5d41fe331a7426a9",
+      "actual": "768000",
+      "within": true
+    },
+    {
+      "commitment": "160c5a3901b4bf3daed1b4d7b230b6a38f83dd5b647f62c547a7dbab3fc9e95a",
+      "anchoredIn": "2026-10-07",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Dumbbell Shoulder Press"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "102721"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "122026"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "114667"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791413915"
+        }
+      ],
+      "nonce": "226a986d392de3eea2e3c5884730724e68e0c0e479c20aa993efa47f6d08cb6e",
+      "actual": "113722",
+      "within": true
+    },
+    {
+      "commitment": "20b70b10cb1c824977d2851d5fb2cf6511a49eb6e94d5ff306dc077939ffd321",
+      "anchoredIn": "2026-10-07",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Dumbbell Romanian Deadlift"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "650856"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "959144"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "805000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791324096"
+        }
+      ],
+      "nonce": "5ceff930e18b59282f9cb6dd061b148b1805fbd5f65403b236cc048575c51c04",
+      "actual": "880000",
+      "within": true
+    },
+    {
+      "commitment": "251aa2424debd2abf83966abc4874619e8237012f03583e92f4ce33e9a434477",
+      "anchoredIn": "2026-10-20",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Dumbbell Bench Press"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "517398"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "629268"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "573333"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792537162"
+        }
+      ],
+      "nonce": "8e0ebce0cabcf44406e66d999a6a5ab8c94ef60d748879eef7db2f62590d21a2",
+      "actual": "600000",
+      "within": true
+    },
+    {
+      "commitment": "2e7abfab781c24a467ae124a3c83d4c5047715bd7bef46b2a5c889d56c171ce1",
+      "anchoredIn": "2026-10-14",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Front Foot Elevated Reverse Lunge (Dumbbell)"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "153333"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "193333"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "173333"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792001394"
+        }
+      ],
+      "nonce": "d0dacf0a29ac95fefed8728887582611ec9d6bf876038eade7396fbfbc280f5e",
+      "actual": "135673",
+      "within": false
+    },
+    {
+      "commitment": "33da4886409bb21e6d0a3ab9a904339b5699572c529ed4816fde18ffee97d2fe",
+      "anchoredIn": "2026-10-19",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Barbell Back Squat"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "1654472"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "2012195"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "1833333"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792447129"
+        }
+      ],
+      "nonce": "1f5a2e72720910d7606b040390da195116c7247c3f17b5abae7e504841ecbee6",
+      "actual": "1802909",
+      "within": true
+    },
+    {
+      "commitment": "45f98a45816901648a932f75042f117c7b74b1fdb886ff854f487fe3f937c0be",
+      "anchoredIn": "2026-10-26",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Sumo Squat"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "302647"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "383353"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "343000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1793056600"
+        }
+      ],
+      "nonce": "423ab03566c909e6e008e8dee5497da270bfd55128b37e6b2c2b701ec50b992e",
+      "actual": "322000",
+      "within": true
+    },
+    {
+      "commitment": "45fca65ab61d5ccbe61bf0aa5209686c8794e05ad51ec6c3cda90a1d72b68c41",
+      "anchoredIn": "2026-10-07",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Seated Dumbbell Lateral Raise"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "70312"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "87248"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "76667"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791413915"
+        }
+      ],
+      "nonce": "92f25f84d5a95ca860f99d5005c92f6a99db7ee922e58b6d03cfaeffdfcf86dd",
+      "actual": "81667",
+      "within": true
+    },
+    {
+      "commitment": "4db6f03bd3c477416e00b5f84f488161a9ce0c4b81b7ba6a1b4af00c0c351e25",
+      "anchoredIn": "2026-10-15",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Lat Pulldown (Cable)"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "370588"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "469412"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "420000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792105572"
+        }
+      ],
+      "nonce": "a85302ff381b903b45fd51397313fbfcd068cb97480d2ffbd2ace230516564d2",
+      "actual": "429333",
+      "within": true
+    },
+    {
+      "commitment": "4e21567263c7cf2132bc15f62424abb307e515e122fd8dee19b3e271cc73ccf2",
+      "anchoredIn": "2026-10-07",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Lat Pulldown (Cable)"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "341769"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "413136"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "388319"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791413915"
+        }
+      ],
+      "nonce": "426576cdc814e777df9b025046c205a12ea7055c3255881dd402c0ffe120d09e",
+      "actual": "420000",
+      "within": false
+    },
+    {
+      "commitment": "500f4a016ec3b0fc89ddf387805a8f9209e319afaca2c2c87799aaa8f7c156a1",
+      "anchoredIn": "2026-10-05",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Rope Pushdown"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "104561"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "132722"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "110948"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791241241"
+        }
+      ],
+      "nonce": "853d3598910ca74e88a72975b78715778bc3b9827a092d4fa4fc111fbb931753",
+      "actual": "122667",
+      "within": true
+    },
+    {
+      "commitment": "53b4d5950fd21e0575f35df7cd195bd11defe7a226d63cd9b6d2adc07d7df9d4",
+      "anchoredIn": "2026-10-05",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Dumbbell Bench Press"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "137242"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "192692"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "163333"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791241241"
+        }
+      ],
+      "nonce": "4b31704691928af9c961b3933f65429feaaaa0b5af090220dfb2de6a0724e0e4",
+      "actual": "146667",
+      "within": true
+    },
+    {
+      "commitment": "545d20e43020ed40597b8381273fe97781b39fa0c4868a8b7f4b2d58ca899960",
+      "anchoredIn": "2026-10-01",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Incline Dumbbell Press"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "498796"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "610686"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "554741"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1790894997"
+        }
+      ],
+      "nonce": "1c259bccbda88fbd44173bc5acf9c9851d616ec0d24b67c91d0669adee9ecd46",
+      "actual": "554741",
+      "within": true
+    },
+    {
+      "commitment": "5ae99bef0626499031a2b9b427c216ac4285ba9b490bfa47dbd102b33cce04f7",
+      "anchoredIn": "2026-10-05",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Seated Dumbbell Lateral Raise"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "122164"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "191169"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "156667"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791200745"
+        }
+      ],
+      "nonce": "b820a05e0c26e66b1f24e0fbc7a3f2f9cda5ae7af7d0846dd80f242d075f8e70",
+      "actual": "130000",
+      "within": true
+    },
+    {
+      "commitment": "63268e2e9e632b8ea3529e9032651f994db52cd6670e93735f71f744fbe5f2ca",
+      "anchoredIn": "2026-10-26",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Front Foot Elevated Reverse Lunge (Dumbbell)"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "119712"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "151635"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "135673"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1793056600"
+        }
+      ],
+      "nonce": "9a759e220d2f4d7d474d9ba55ec04c3b60a0fe85935a90c5a3371847a4f6c081",
+      "actual": "135673",
+      "within": true
+    },
+    {
+      "commitment": "641f8f1666e3879fe83d77005885aea8df06f46335534ded06e77934512f7cb5",
+      "anchoredIn": "2026-10-02",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Barbell Glute Bridge"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "1085802"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "1318604"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "1202667"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1790982694"
+        }
+      ],
+      "nonce": "b412a662c2144a1f717523538894ffb43c265ab161b482206e9975797f5a46e5",
+      "actual": "1320000",
+      "within": false
+    },
+    {
+      "commitment": "763dfd1d0f69ea52ee45f8a41b09cff063a27a0d281e6823efb54f98e3d3bcf5",
+      "anchoredIn": "2026-10-15",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Chest Supported Row"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "362733"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "437267"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "400000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792105633"
+        }
+      ],
+      "nonce": "60f5f6ed7c18bc16ede483daeb26b0d4bc46b08088bdd02a7b347d2e397db780",
+      "actual": "470000",
+      "within": false
+    },
+    {
+      "commitment": "7746555b829efce9b7cfa6d476236f65cc95bfb56dcf885c8e3aa8caa2d4e1ec",
+      "anchoredIn": "2026-10-15",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Dumbbell Shoulder Press"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "101176"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "128157"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "113722"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792105572"
+        }
+      ],
+      "nonce": "9bf933390436aa9ee792db2f72564621b4b4520b303905a0e9144f0e7cb5da6f",
+      "actual": "103371",
+      "within": true
+    },
+    {
+      "commitment": "80d7d5b35c36fb0cecba398dbaa74a97d5211b3fe5cd95c55fcffc1b96bff16d",
+      "anchoredIn": "2026-10-01",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Seated Dumbbell Lateral Raise"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "116821"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "203179"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "160000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1790894997"
+        }
+      ],
+      "nonce": "e1c415a83a3c90f8d03968c36a877ea94c9cf04f0ee2ca909e10646894fcb816",
+      "actual": "156667",
+      "within": true
+    },
+    {
+      "commitment": "815c30d17f746424dd5ceb13a98ed1a8509bf45761e0d4f307ae9c66dcffe990",
+      "anchoredIn": "2026-10-15",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Incline Dumbbell Curl"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "67647"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "85686"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "76667"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792105572"
+        }
+      ],
+      "nonce": "d1abf7c56d425466890d99067a2df6eff34ec3b04d4b5145ff2b20a3304e0617",
+      "actual": "61333",
+      "within": false
+    },
+    {
+      "commitment": "819f8d2cabbfd2190814a4f2237ebd66509d180ec99794cce46274349d5fd760",
+      "anchoredIn": "2026-10-02",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Romanian Deadlift"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "827507"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "1024005"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "900000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1790982878"
+        }
+      ],
+      "nonce": "5dd33d77b7ad4370c91f50b140b2e0e73a730b1c79f647de48e25dabb833e775",
+      "actual": "788333",
+      "within": false
+    },
+    {
+      "commitment": "846dba75e78c5e2e2f69e121b7fec044f835e0f56b501fdac3ecd96d6bbfccae",
+      "anchoredIn": "2026-10-05",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Dumbbell Bench Press"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "469484"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "557395"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "513333"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791200745"
+        }
+      ],
+      "nonce": "b94216b09b9d5613781bafdac3562f5b523a18d0aa71d4f44a5fdaa08d5c84f4",
+      "actual": "525000",
+      "within": true
+    },
+    {
+      "commitment": "8781acff21531f3c9167e212f64f0e98b6bd5474e7b5e7ccd0c5e9369fd90543",
+      "anchoredIn": "2026-10-01",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Dumbbell Bench Press"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "127404"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "185930"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "156667"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1790895482"
+        }
+      ],
+      "nonce": "d23f74b6aa17de217f78421569f9bb410f57939f4c1c609c0857c2c3f1c3471f",
+      "actual": "163333",
+      "within": true
+    },
+    {
+      "commitment": "8c4e37953e1436b936921474971faaa803441877e1be154401a2762fa57d1043",
+      "anchoredIn": "2026-10-07",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Front Foot Elevated Reverse Lunge (Dumbbell)"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "209859"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "468508"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "339184"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791324096"
+        }
+      ],
+      "nonce": "15360f532fc59998ec4afd82c55e8ea303473d65302106648a88b00384f8597e",
+      "actual": "365500",
+      "within": true
+    },
+    {
+      "commitment": "8e116f80f2b057acdbb5674cb518bcb8b84d92d47a9a39c653a86ae34518a368",
+      "anchoredIn": "2026-10-05",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Dumbbell Shoulder Press"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "101450"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "120750"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "110000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791241241"
+        }
+      ],
+      "nonce": "506f65f8dcbd91caca833b23a933db42d5d9ab9f0bbe77ba85e84c3108d3a0e8",
+      "actual": "114667",
+      "within": true
+    },
+    {
+      "commitment": "959b51bf48a74a753799a20027c05a50160bae9266865051f22ed3565ccbbb6f",
+      "anchoredIn": "2026-10-05",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Single Arm Cable Pushdown"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "146013"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "186832"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "166422"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791242111"
+        }
+      ],
+      "nonce": "aa244e06f48b0ec2f0b1732cbd16e58a8e096ebee8591024a7618fee6b714dd2",
+      "actual": "144000",
+      "within": false
+    },
+    {
+      "commitment": "9f0702b56fd4bf269fc654c81d5c2e6c1994c635e559a8190b122a68da6d13c7",
+      "anchoredIn": "2026-10-01",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Wide Grip Lat Pulldown"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "365291"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "474709"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "420000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1790895482"
+        }
+      ],
+      "nonce": "f9fdf0920bd62035fa90676754695bc57ef47d065ebc32a2d0baedb865f48ca9",
+      "actual": "429333",
+      "within": true
+    },
+    {
+      "commitment": "9f49261233ff4cd4294531314034c29a3aa4f4a2e2ddf836461eff705acacd9f",
+      "anchoredIn": "2026-10-14",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Sumo Squat"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "250641"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "316026"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "229333"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792001394"
+        }
+      ],
+      "nonce": "80b18031db84ffb65b563e6ac9255f35ccf73e017abf15106ac113555367588a",
+      "actual": "343000",
+      "within": false
+    },
+    {
+      "commitment": "ad12fcd00204580854081f600d59e0ef8810712c0015057de741c5040554e8bc",
+      "anchoredIn": "2026-10-07",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Power Shrug"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "1792236"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "2221097"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "2006667"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791413958"
+        }
+      ],
+      "nonce": "5dc434f139f4fb12728e77381b85752b1da165d0d626c9cdd4125edf606a0b45",
+      "actual": "2090000",
+      "within": true
+    },
+    {
+      "commitment": "b001be18d46415c9e3453a30f149f44bebe787ec0a337df838bd754175d37919",
+      "anchoredIn": "2026-10-05",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Seated Dumbbell Lateral Raise"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "80009"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "95058"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "86667"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791241241"
+        }
+      ],
+      "nonce": "ce3b468f445dfa2b21ce570c73220a65b2ac5f5146140dd4132d827e67ff6223",
+      "actual": "76667",
+      "within": false
+    },
+    {
+      "commitment": "b2b495a06e62e3b3416a4b2d87e40d0c126bbd66f56c59b19e229dc3210aaaf0",
+      "anchoredIn": "2026-10-02",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Sumo Squat"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "124730"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "251270"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "188000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1790982878"
+        }
+      ],
+      "nonce": "1dd944f4ade6878777bf79eb2a1695eee800bf48294fed08cf35124810d4ec8f",
+      "actual": "283333",
+      "within": false
+    },
+    {
+      "commitment": "b41db321ad2be4faf8a31e43f44611489a7b63e9a2b133cbd4d243279eff2e60",
+      "anchoredIn": "2026-10-26",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Close Grip Lat Pulldown"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "1038322"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "1361678"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "1200000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1793056713"
+        }
+      ],
+      "nonce": "7090d8f573e0c7e6359df2f2c12b29e489f43657e6c790aad6445cebf4f28a9d",
+      "actual": "1173333",
+      "within": true
+    },
+    {
+      "commitment": "b513cd6c93b963ebe33a32fadf592a4a4fe8aa3477f0a111a3496a4e1be4bcdd",
+      "anchoredIn": "2026-10-09",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Close Grip Lat Pulldown"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "1056590"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "1343410"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "1200000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791584238"
+        }
+      ],
+      "nonce": "5f2316755c9d8f6fcd053abbc6d934683411bc1ad9529f65e08bee3f0d5ad4f8",
+      "actual": "1226667",
+      "within": true
+    },
+    {
+      "commitment": "b5436fc0ceff97d8548cc054e0343a4cd8d9dd99b75ff25eda0cd0e4fba1a634",
+      "anchoredIn": "2026-10-09",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Dumbbell Bench Press"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "480490"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "569510"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "525000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791584238"
+        }
+      ],
+      "nonce": "14fccdc80776f4e88c35dd1c6939474b9ef8632dcf6fda7a26d78e9f46ce0b65",
+      "actual": "520070",
+      "within": true
+    },
+    {
+      "commitment": "b62538c99d3c208383f8048b0e5ddbe6d611077f915affa90eadf05209810753",
+      "anchoredIn": "2026-10-01",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Seated Cable Row"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "222075"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "513925"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "368000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1790895482"
+        }
+      ],
+      "nonce": "f496d639d71a325cf9ffe450e33573a076816938055c4fffc0b451d18c43f867",
+      "actual": "376000",
+      "within": true
+    },
+    {
+      "commitment": "bb8bb93bd002e61806e4f21e0516cab47484a72d90674b710784f344e01644a5",
+      "anchoredIn": "2026-10-13",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Wide Grip Lat Pulldown"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "945524"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "1139810"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "1042667"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791924564"
+        }
+      ],
+      "nonce": "efec66b4bc7c126fac7222e206d2338911ca50cf9e954b141808bf4c5cda7676",
+      "actual": "980000",
+      "within": true
+    },
+    {
+      "commitment": "bbc8fb672acb27f39761a71680d8b04594f949edeb9b3338624477df032d95ec",
+      "anchoredIn": "2026-10-13",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Dumbbell Bench Press"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "476087"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "573913"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "520070"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791924564"
+        }
+      ],
+      "nonce": "636b00a903331b2185cd0ed2c7c7d2693e1014f06e334b548c1603fd01e80f83",
+      "actual": "573333",
+      "within": true
+    },
+    {
+      "commitment": "bc523002149d1fc7402753a32ef55ef06590d1ede9482c9d4c0699d0cbb6e67c",
+      "anchoredIn": "2026-10-01",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Wide Grip Lat Pulldown"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "908567"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "1222100"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "1065333"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1790894997"
+        }
+      ],
+      "nonce": "3af4e6e133596b4bc94b6c2c67a42d1ecab4537da27f4f5fc8c1171f785df12b",
+      "actual": "1042667",
+      "within": true
+    },
+    {
+      "commitment": "bd2b66f3810cc72efe0204bc72b924f437a06da722fa9b938f34049046487fc6",
+      "anchoredIn": "2026-10-23",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Front Foot Elevated Reverse Lunge (Dumbbell)"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "307462"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "403213"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "355338"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792798792"
+        }
+      ],
+      "nonce": "60fab6793c8ca43e333fe290887b6ddad7b36192d48815e72bbe063476eb9078",
+      "actual": "381385",
+      "within": true
+    },
+    {
+      "commitment": "be438bf011c5bc0d9b4e9bea6324d3635c75f13324a4c7fa97d084fb8a0511d2",
+      "anchoredIn": "2026-10-05",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Close Grip Lat Pulldown"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "1026467"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "1320199"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "1173333"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791200745"
+        }
+      ],
+      "nonce": "9ffb6ca496726bdce40ef2f4a64182754c49845f9b4d9a691366a630a58b6e7d",
+      "actual": "1200000",
+      "within": true
+    },
+    {
+      "commitment": "c51886766a5be102fd14d3514cce8c6df942c881e15faf9feab8e4933b916a3e",
+      "anchoredIn": "2026-10-01",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Spider Curl"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "59940"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "77044"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "67837"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1790895482"
+        }
+      ],
+      "nonce": "bebc9026103c990c8b60d8826c0bab8a70e7c33485c88bc3cb6ead8ee0423de5",
+      "actual": "78333",
+      "within": false
+    },
+    {
+      "commitment": "c943ce6952be4c3b4c96f2dacd0e3f24c5c35e762377c207d5a3c6b61e1be5c1",
+      "anchoredIn": "2026-10-07",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Goblet Squat"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "519024"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "1360976"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "940000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791324096"
+        }
+      ],
+      "nonce": "d3c8bb86b6c2fb4bea0c29ed99531be52b12e00de38f95b26b867bdb0c446fcb",
+      "actual": "1073333",
+      "within": true
+    },
+    {
+      "commitment": "ce298b9d09ad75ac116ae8a4ae9b8b4167f82287b4bc15a87a93a64b81a93459",
+      "anchoredIn": "2026-10-19",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Seated Leg Curl"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "398908"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "521092"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "460000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792171258"
+        }
+      ],
+      "nonce": "68df71a1a74ad895a49db97b787aa0e121f6daa1f26e09e42d94911343b042c4",
+      "actual": "450000",
+      "within": true
+    },
+    {
+      "commitment": "d0fc0faca4b785cbe78f159d6f4df740e7a2f42538db8933e23e97c8a643a5f6",
+      "anchoredIn": "2026-10-19",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Conventional Deadlift (Trap Bar)"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "715433"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "934567"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "825000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792171258"
+        }
+      ],
+      "nonce": "5c12e53b7dfb9af3711bc0658ff167063bedd18ba18f46fb787def2111c16c5a",
+      "actual": "843333",
+      "within": true
+    },
+    {
+      "commitment": "d1d7639fb197dd272899d62f8949a92450207d62aa95055fb896aef3758f27a6",
+      "anchoredIn": "2026-10-09",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Barbell Back Squat"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "1267973"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "1999474"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "1860000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791584238"
+        }
+      ],
+      "nonce": "29ef2ebf9694555ae8f27b238d994676d27eac6b42cd6457845e049a0b45df36",
+      "actual": "1833333",
+      "within": true
+    },
+    {
+      "commitment": "d6013a8b6bb8d017bd9375d3f15dd881173a8717a8124da0fbeee27f4ceae5bf",
+      "anchoredIn": "2026-10-07",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Behind the Neck Press"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "448342"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "578542"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "513333"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791413958"
+        }
+      ],
+      "nonce": "e324563cd0e315356b8e18a64a46e101ed2ee49f36d44e873a9ca32e3060dd4d",
+      "actual": "600000",
+      "within": false
+    },
+    {
+      "commitment": "d634708d60f625ff38b9a740aec3e5871fe6d9c4dff3a970dab16bf0a48c0cd8",
+      "anchoredIn": "2026-10-14",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Conventional Deadlift (Trap Bar)"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "729808"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "920192"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "825000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792001394"
+        }
+      ],
+      "nonce": "e029aa082a678ba4832fca87932140f71d9af71456a11c704a5d9e31c24f8036",
+      "actual": "825000",
+      "within": true
+    },
+    {
+      "commitment": "db585ac1caa52ada5f94f3574571e85cbbf9ef7d7142c396fa146e7c7b86bb27",
+      "anchoredIn": "2026-10-01",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Barbell Row"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "996572"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "1349669"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "1175000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1790894997"
+        }
+      ],
+      "nonce": "521838402a532d18a0d056c35b8614b04bbbd5214207de0d4990b6e41c8d611b",
+      "actual": "1109482",
+      "within": true
+    },
+    {
+      "commitment": "e32df643d80b4d7de827134b65d6f168303586c4f0fa8187e121daa7dd9ecad3",
+      "anchoredIn": "2026-10-13",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Chest Supported Row"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "362733"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "437267"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "400000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791924564"
+        }
+      ],
+      "nonce": "3f659ec109f9225612a1678d27d53bf85783630f2382340b3cff1b436ddac92d",
+      "actual": "400000",
+      "within": true
+    },
+    {
+      "commitment": "e5425fe5233616ff6a6258ff2e511b28cc9ec469aee60bf1725862c1b8403c1a",
+      "anchoredIn": "2026-10-05",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Wide Grip Lat Pulldown"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "383680"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "483573"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "429333"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791241241"
+        }
+      ],
+      "nonce": "ff350570e7d73aad78969373969e61320fde10c641b1ada75cbb25e6e4fb5322",
+      "actual": "410667",
+      "within": true
+    },
+    {
+      "commitment": "eb7cfd00fb651e1abee0aa73532bc8f761bdcaa84c5b9f4d3bfb290cc13941b4",
+      "anchoredIn": "2026-10-02",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Seated Leg Curl"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "317682"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "555855"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "403333"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1790982878"
+        }
+      ],
+      "nonce": "c532f4969c30fbc88be3ee9287e40fd101245b26694a53491cb8db278cdb5138",
+      "actual": "440000",
+      "within": true
+    },
+    {
+      "commitment": "f0040d52840c5e87772d3d79373c02562f81399c97b3d78d16b66669a141f956",
+      "anchoredIn": "2026-10-05",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Arnold Press"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "120197"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "260024"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "176000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791200745"
+        }
+      ],
+      "nonce": "71051a596f6c2ba768579038e3686be2347961c89b9a4825b22ba243e115d83f",
+      "actual": "204167",
+      "within": true
+    },
+    {
+      "commitment": "f63d055ae85d26a13c2c3da4b11ad203b7e9c393421bff25e12fe410fe146501",
+      "anchoredIn": "2026-10-09",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Sumo Squat"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "159355"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "340645"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "250000"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791583270"
+        }
+      ],
+      "nonce": "bb5c7d47dbef80601a79cbbe95d98a867a20da1710aad7d0e622d5805d65e52b",
+      "actual": "229333",
+      "within": true
+    },
+    {
+      "commitment": "f6eb1e16ef2be494ee86ebca6b9025097dad9bc3ec910ec3bea1223ad3296e94",
+      "anchoredIn": "2026-10-07",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Incline Dumbbell Curl"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "62485"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "97935"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "73333"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791413915"
+        }
+      ],
+      "nonce": "27b179d11d286a277b7f3166d8c8d42ef07f306378cf98e223645a6ba2b77f66",
+      "actual": "76667",
+      "within": true
+    },
+    {
+      "commitment": "f78db6ef439d4c558b514f3f0c7380641a956b718921c6242fa69c1200f9dff0",
+      "anchoredIn": "2026-10-15",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Close Grip Lat Pulldown"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "1112381"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "1340952"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "1226667"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792105633"
+        }
+      ],
+      "nonce": "490ed469e16b859ed5f6edbd0db91d934b9913e899319145235811556fc696e5",
+      "actual": "1200000",
+      "within": true
+    },
+    {
+      "commitment": "fde97690bb69d4ee9c9d8f52c9cdb13de8804d19abee0b4b8854eb6b0692573c",
+      "anchoredIn": "2026-10-15",
+      "fields": [
+        {
+          "key": "kind",
+          "value": "session-forecast"
+        },
+        {
+          "key": "exercise",
+          "value": "Dumbbell Bench Press"
+        },
+        {
+          "key": "bandLowKg",
+          "value": "129412"
+        },
+        {
+          "key": "bandHighKg",
+          "value": "163922"
+        },
+        {
+          "key": "naiveBaselineKg",
+          "value": "146667"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792105572"
+        }
+      ],
+      "nonce": "23f907c1bfaa22a9d0005b77a56dc2f50cf0670ecb87e96327c74768618f510f",
+      "actual": "153333",
+      "within": true
+    }
+  ],
+  "promises": [
+    {
+      "commitment": "e5d0561d95275016e13157a0d76f0a2abd9be97b1a6811d6bc1c514ca2ae169b",
+      "anchoredIn": "2026-10-07",
+      "fields": [
+        {
+          "key": "protocol",
+          "value": "2"
+        },
+        {
+          "key": "kind",
+          "value": "goal-date"
+        },
+        {
+          "key": "exercise",
+          "value": "Sumo Squat"
+        },
+        {
+          "key": "targetKg",
+          "value": "250000"
+        },
+        {
+          "key": "dueBy",
+          "value": "1793123004"
+        },
+        {
+          "key": "statedPercent",
+          "value": "62"
+        },
+        {
+          "key": "basis",
+          "value": "5"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1791308604"
+        }
+      ],
+      "nonce": "1713059b70adfac3b1a64f61aa942949515d8fc3787c516d2e182d10dc2530f1",
+      "outcome": [
+        {
+          "key": "estimatedMaxKg",
+          "value": "322000"
+        }
+      ],
+      "statedPercent": 62,
+      "kept": true
+    },
+    {
+      "commitment": "f77f603224b41a63b397b52e4078db156e70a182c4a728e1253edac63cce361a",
+      "anchoredIn": "2026-10-23",
+      "fields": [
+        {
+          "key": "protocol",
+          "value": "2"
+        },
+        {
+          "key": "kind",
+          "value": "set-promise"
+        },
+        {
+          "key": "exercise",
+          "value": "Dumbbell Bench Press"
+        },
+        {
+          "key": "loadKg",
+          "value": "80000"
+        },
+        {
+          "key": "reps",
+          "value": "15"
+        },
+        {
+          "key": "reserve",
+          "value": "4"
+        },
+        {
+          "key": "voice",
+          "value": "textbook"
+        },
+        {
+          "key": "statedPercent",
+          "value": "77"
+        },
+        {
+          "key": "basis",
+          "value": "8"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792797876"
+        }
+      ],
+      "nonce": "ceb5ba70b8a4d4e73b83829517903dfb0a2237ec2706884c361cc22aa9abdc04",
+      "outcome": [
+        {
+          "key": "loggedKg",
+          "value": "80000"
+        },
+        {
+          "key": "loggedReps",
+          "value": "15"
+        },
+        {
+          "key": "typedReserve",
+          "value": "3"
+        }
+      ],
+      "statedPercent": 77,
+      "kept": false
+    }
+  ],
+  "declinedCalls": [
+    {
+      "commitment": "08dc0e17bcd5ad29092811e0a119da7705dbccc90763ee33fe574d97a9485a50",
+      "anchoredIn": "2026-10-20",
+      "fields": [
+        {
+          "key": "protocol",
+          "value": "3"
+        },
+        {
+          "key": "kind",
+          "value": "session-declined"
+        },
+        {
+          "key": "exercise",
+          "value": "Single Arm Cable Pushdown"
+        },
+        {
+          "key": "reason",
+          "value": "deload"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792537530"
+        }
+      ],
+      "nonce": "fb40d5f3eb9f1eda8f72c41b704eec14f842b88d8874a70e8ad6a8b1227512d1",
+      "reason": "deload"
+    },
+    {
+      "commitment": "08ebd6d979bca6cb25b67022bbb97e140841e68f2dd96b6c70a1700dcf8a0fb8",
+      "anchoredIn": "2026-10-23",
+      "fields": [
+        {
+          "key": "protocol",
+          "value": "3"
+        },
+        {
+          "key": "kind",
+          "value": "session-declined"
+        },
+        {
+          "key": "exercise",
+          "value": "Seated Cable Row"
+        },
+        {
+          "key": "reason",
+          "value": "deload"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792797876"
+        }
+      ],
+      "nonce": "1bdd6d0f7b344ff283c5675ae420f57177909976901c9d1005bb9a1f9914186f",
+      "reason": "deload"
+    },
+    {
+      "commitment": "19ad8a8587a47d08218c6a09ee6a11177ef8b4a8c73309f31b64600d1a565adb",
+      "anchoredIn": "2026-10-26",
+      "fields": [
+        {
+          "key": "protocol",
+          "value": "3"
+        },
+        {
+          "key": "kind",
+          "value": "session-declined"
+        },
+        {
+          "key": "exercise",
+          "value": "Seated Dumbbell Lateral Raise"
+        },
+        {
+          "key": "reason",
+          "value": "longGap"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1793056713"
+        }
+      ],
+      "nonce": "0a68a32320c9864bf56ba6f491e9fe3d32a5bf6659e4e9552508fa25c450d13e",
+      "reason": "longGap"
+    },
+    {
+      "commitment": "31af1c499aa9c996e1833c41c1e08f3bea18e9f4bb411b5e24c7849b1304f0fa",
+      "anchoredIn": "2026-10-20",
+      "fields": [
+        {
+          "key": "protocol",
+          "value": "3"
+        },
+        {
+          "key": "kind",
+          "value": "session-declined"
+        },
+        {
+          "key": "exercise",
+          "value": "Seated Cable Row"
+        },
+        {
+          "key": "reason",
+          "value": "deload"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792537530"
+        }
+      ],
+      "nonce": "1c2ff7fc3bd2cd952c2048b336d5cb30e2937dfd43a894ad85c5c606ed493e84",
+      "reason": "deload"
+    },
+    {
+      "commitment": "369a57db98e137e000794489ce01a34649c2ed0d166fecccd7d4c6d83509385f",
+      "anchoredIn": "2026-10-23",
+      "fields": [
+        {
+          "key": "protocol",
+          "value": "3"
+        },
+        {
+          "key": "kind",
+          "value": "session-declined"
+        },
+        {
+          "key": "exercise",
+          "value": "Dumbbell Shoulder Press"
+        },
+        {
+          "key": "reason",
+          "value": "deload"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792797876"
+        }
+      ],
+      "nonce": "e1833f2d7fd259e64b4bb7bf14f6f365d2a775687214adbeac4277ce00685b63",
+      "reason": "deload"
+    },
+    {
+      "commitment": "4785ddaf74ef202fa79fad7f98ec28b43a0d91241c477d769849cc3df7e51f05",
+      "anchoredIn": "2026-10-23",
+      "fields": [
+        {
+          "key": "protocol",
+          "value": "3"
+        },
+        {
+          "key": "kind",
+          "value": "session-declined"
+        },
+        {
+          "key": "exercise",
+          "value": "Dumbbell Bench Press"
+        },
+        {
+          "key": "reason",
+          "value": "deload"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792797876"
+        }
+      ],
+      "nonce": "24351bba5bf60714de8d295e878e5aba1000894b60eeceefe44505141a32e9f6",
+      "reason": "deload"
+    },
+    {
+      "commitment": "6feb53a10ceaf13502d5d058d3455f9f42635b4ddfc3bd10645b919c30855599",
+      "anchoredIn": "2026-10-21",
+      "fields": [
+        {
+          "key": "protocol",
+          "value": "3"
+        },
+        {
+          "key": "kind",
+          "value": "session-declined"
+        },
+        {
+          "key": "exercise",
+          "value": "Single Arm Cable Pushdown"
+        },
+        {
+          "key": "reason",
+          "value": "longGap"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792624486"
+        }
+      ],
+      "nonce": "7522ae419eed826d9eddf930366569463f11c21d52dcc71ff62c5a14ba81acd8",
+      "reason": "longGap"
+    },
+    {
+      "commitment": "71349a76a20b3a70e6162c55ab0d414771f6cd7ab9f823066cb62faa5b7a6295",
+      "anchoredIn": "2026-10-23",
+      "fields": [
+        {
+          "key": "protocol",
+          "value": "3"
+        },
+        {
+          "key": "kind",
+          "value": "session-declined"
+        },
+        {
+          "key": "exercise",
+          "value": "Incline Dumbbell Curl"
+        },
+        {
+          "key": "reason",
+          "value": "deload"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792797876"
+        }
+      ],
+      "nonce": "781d9ab9b8aaa0ecf261d510dfa2bed8f584c525ac36c240fa90b54ecd183a90",
+      "reason": "deload"
+    },
+    {
+      "commitment": "a5f3c2426e2dc5f8e40c4d8c6ac1b8c992cb2421ce686a6570e8e96e0647b1da",
+      "anchoredIn": "2026-10-20",
+      "fields": [
+        {
+          "key": "protocol",
+          "value": "3"
+        },
+        {
+          "key": "kind",
+          "value": "session-declined"
+        },
+        {
+          "key": "exercise",
+          "value": "Barbell Row"
+        },
+        {
+          "key": "reason",
+          "value": "longGap"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792537162"
+        }
+      ],
+      "nonce": "4052b6d817ae21fc4cebba3bd103dad4a88b636e3a12459cfdcae0715b710f41",
+      "reason": "longGap"
+    },
+    {
+      "commitment": "da787154969ebabb226fd3359afb08166e61b256b0ea7e43ab0a958a7f6fffcb",
+      "anchoredIn": "2026-10-20",
+      "fields": [
+        {
+          "key": "protocol",
+          "value": "3"
+        },
+        {
+          "key": "kind",
+          "value": "session-declined"
+        },
+        {
+          "key": "exercise",
+          "value": "Dumbbell Bench Press"
+        },
+        {
+          "key": "reason",
+          "value": "deload"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792537530"
+        }
+      ],
+      "nonce": "3f7304ce9bee51b806f15e94566befca9522204712a3632982eadef5717fe298",
+      "reason": "deload"
+    },
+    {
+      "commitment": "de3c830a4e68573886053f397473817ed5ca7ad546dc956a0732bb7370b986fb",
+      "anchoredIn": "2026-10-20",
+      "fields": [
+        {
+          "key": "protocol",
+          "value": "3"
+        },
+        {
+          "key": "kind",
+          "value": "session-declined"
+        },
+        {
+          "key": "exercise",
+          "value": "Dumbbell Shoulder Press"
+        },
+        {
+          "key": "reason",
+          "value": "deload"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792537530"
+        }
+      ],
+      "nonce": "e2e477c80e37f7295acef6e9d2f0a065ca6a3c0cfa857174933a28dbc08ebd8d",
+      "reason": "deload"
+    },
+    {
+      "commitment": "f31af4ad9c6e168d085581b23c332bce7a681f31625d9db4b8c03738464591e2",
+      "anchoredIn": "2026-10-21",
+      "fields": [
+        {
+          "key": "protocol",
+          "value": "3"
+        },
+        {
+          "key": "kind",
+          "value": "session-declined"
+        },
+        {
+          "key": "exercise",
+          "value": "Incline Dumbbell Curl"
+        },
+        {
+          "key": "reason",
+          "value": "longGap"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792624486"
+        }
+      ],
+      "nonce": "e103fa68f63ec4ce656dd0dc41fbb5f811e758278d25e6788ae9454c614c8c04",
+      "reason": "longGap"
+    },
+    {
+      "commitment": "fb0d7660b0ee831eab3732c492b198c304d9a7a906d1299af26e7bed406b4439",
+      "anchoredIn": "2026-10-14",
+      "fields": [
+        {
+          "key": "protocol",
+          "value": "3"
+        },
+        {
+          "key": "kind",
+          "value": "session-declined"
+        },
+        {
+          "key": "exercise",
+          "value": "Trap Bar Romanian Deadlift"
+        },
+        {
+          "key": "reason",
+          "value": "neverSeen"
+        },
+        {
+          "key": "sealedFor",
+          "value": "1792016705"
+        }
+      ],
+      "nonce": "a89119356284a324cc2ba13d5fd19ec7ce0626a288140ed98af27719fbec742b",
+      "reason": "neverSeen"
+    }
+  ]
+}
