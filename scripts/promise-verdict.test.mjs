@@ -3,7 +3,7 @@
 // the outcome that would turn it red if the rule drifted.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { promiseVerdict } from './promise-verdict.mjs';
+import { promiseVerdict, retentionVerdict } from './promise-verdict.mjs';
 
 const kg = (x) => String(Math.round(x * 10000));
 const setPromise = (over = {}) => {
@@ -42,4 +42,22 @@ test('a goal date is kept when the estimated max reached the target', () => {
 test('a stated sureness outside 1 to 99, or a non-integer fact, refuses', () => {
   assert.equal(promiseVerdict(setPromise({ statedPercent: '100' }), facts(100, 5, 2)), null);
   assert.equal(promiseVerdict(setPromise(), [{ key: 'loggedKg', value: '1e6' }]), null);
+});
+
+// 12-week strength calls. The app's rule is `end >= baseline * 0.95` (`RetentionMath.grade`, KeepStrengthGoal.swift), restated in the committed integers.
+const call = (over = {}) => (k) => ({ protocol: '5', kind: 'strength-retention', baselineKg: '14250', keepPercent: '95', ...over })[k];
+const end = (value) => [{ key: 'endKg', value }];
+test('a 12-week call is kept exactly on the line, in integers, with no float deciding it', () => {
+  assert.deepEqual(retentionVerdict(call(), end('13538')), { keepPercent: 95, kept: true });   // 135.38 >= 135.375
+  assert.deepEqual(retentionVerdict(call({ baselineKg: '10000' }), end('9500')), { keepPercent: 95, kept: true });
+});
+test('a 12-week call one hundredth under the line fell below', () => {
+  assert.deepEqual(retentionVerdict(call({ baselineKg: '10000' }), end('9499')), { keepPercent: 95, kept: false });
+});
+test('a 12-week call without its facts, or another kind, is not graded', () => {
+  assert.equal(retentionVerdict(call(), []), null);
+  assert.equal(retentionVerdict(call(), end('139 kg')), null);
+  assert.equal(retentionVerdict(call({ kind: 'set-promise' }), end('13538')), null);
+  assert.equal(retentionVerdict(call({ keepPercent: '100' }), end('14250')), null);
+  assert.equal(retentionVerdict(call({ baselineKg: '0' }), end('14250')), null);
 });

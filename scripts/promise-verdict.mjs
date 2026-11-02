@@ -35,5 +35,18 @@ export function promiseVerdict(field, outcome) {
     default: return null;
   }
 }
+// ── PROTOCOL 5: A 12-WEEK STRENGTH CALL, GRADED HERE FROM ITS OWN FACTS (2026-11-02) ──────────
+// Sealed the day an athlete chose to keep their strength while losing weight: this lift will hold keepPercent of where it
+// started, on gradeOn. No sureness is stated, so it has no calibration band. Kilograms are committed at two decimals as integers,
+// so the comparison stays in integers and no float decides a call on the line: endKg * 100 >= baselineKg * keepPercent.
+export function retentionVerdict(field, outcome) {
+  const facts = new Map((Array.isArray(outcome) ? outcome : []).map(f => [f && f.key, f && f.value]));
+  const num = (v) => (typeof v === 'string' && INTEGER.test(v)) ? Number(v) : NaN;
+  const baseline = num(field('baselineKg')), keep = num(field('keepPercent')), end = num(facts.get('endKg'));
+  if (field('kind') !== 'strength-retention') return null;
+  if (![baseline, keep, end].every(Number.isSafeInteger) || baseline <= 0 || end < 0 || keep < 1 || keep > 99) return null;
+  return { keepPercent: keep, kept: end * 100 >= baseline * keep };
+}
+
 // The stated sureness in bands of ten points. A calibrated coach's 80 percent comes true about 8 times in 10.
 export const PROMISE_BANDS = [[50, 59], [60, 69], [70, 79], [80, 89], [90, 99]];

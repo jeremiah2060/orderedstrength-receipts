@@ -83,11 +83,29 @@ const declinedGap = decline({ reason: 'longGap', athlete: who('b'), nonce: n(8) 
 const declinedWithResult = decline({ reason: 'deload', actual: '1000000', athlete: who('c'), nonce: n(9) });
 const declinedWithBand = decline({ reason: 'deload', athlete: who('c'), nonce: n(10), band: true });
 
+// PROTOCOL 5: 12-week strength calls, graded from their own facts. Sealed on the 6th, due long after.
+function twelveWeek({ end, actual, athlete, nonce, gradeOn = String(Number(sealedFor) + 84 * 86400), kind = 'strength-retention' }) {
+  const fields = [
+    { key: 'protocol', value: '5' }, { key: 'kind', value: kind },
+    { key: 'exercise', value: 'Barbell Back Squat' }, { key: 'baselineKg', value: '10000' },
+    { key: 'keepPercent', value: '95' }, { key: 'gradeOn', value: gradeOn }, { key: 'sealedFor', value: sealedFor },
+  ];
+  return { fields, nonce, commitment: digest(fields, nonce), actual, athlete, outcome: [{ key: 'endKg', value: end }] };
+}
+const heldCall = twelveWeek({ end: '9500', actual: '1', athlete: who('a'), nonce: n(11) });
+const lostCall = twelveWeek({ end: '9000', actual: '0', athlete: who('f'), nonce: n(12) });
+// The phone says kept and the facts say otherwise: the facts decide, and the disagreement is published.
+const lyingCall = twelveWeek({ end: '9000', actual: '1', athlete: who('f'), nonce: n(13) });
+const wrongKindCall = twelveWeek({ end: '9500', actual: '1', athlete: who('g'), nonce: n(14), kind: 'set-promise' });
+// Fingerprint published on its own grade day: nothing proves it predates the result.
+const sealedLateCall = twelveWeek({ end: '9500', actual: '1', athlete: who('g'), nonce: n(15), gradeOn: sealedFor });
+
 const server = createServer((req, res) => {
   if (req.url === `/api/v1/record/month/${MONTH}`) {
     res.writeHead(200, { 'content-type': 'application/json' });
     return res.end(JSON.stringify({ month: MONTH, count: 6, athletes: 5,
-      reveals: [hit1, hit2, hit3, miss, orphan, edited, declinedNew, declinedGap, declinedWithResult, declinedWithBand] }));
+      reveals: [hit1, hit2, hit3, miss, orphan, edited, declinedNew, declinedGap, declinedWithResult, declinedWithBand,
+                heldCall, lostCall, lyingCall, wrongKindCall, sealedLateCall] }));
   }
   res.writeHead(404); res.end();
 });
@@ -98,7 +116,8 @@ fs.rmSync(path.join(WORK, 'accuracy'), { recursive: true, force: true });
 fs.mkdirSync(path.join(WORK, 'leaves'), { recursive: true });
 // One published day holding every fingerprint except the orphan's.
 fs.writeFileSync(path.join(WORK, 'leaves', `${MONTH}-06.txt`),
-  [hit1, hit2, hit3, miss, edited, declinedNew, declinedGap, declinedWithResult, declinedWithBand]
+  [hit1, hit2, hit3, miss, edited, declinedNew, declinedGap, declinedWithResult, declinedWithBand,
+   heldCall, lostCall, lyingCall, wrongKindCall, sealedLateCall]
     .map(r => r.commitment).sort().join('\n') + '\n');
 
 // 🔒 ASYNC, BECAUSE THE FAKE API LIVES IN THIS PROCESS. A blocking child cannot be answered by a
@@ -134,6 +153,17 @@ check('a decline that claims a result or states a range is disclosed as malforme
   doc.notGraded.declinesMalformed === 2);
 check('every declined call is published so a stranger can check it',
   calls.declinedCalls.length === 2 && calls.declinedCalls.every(c => c.nonce && c.anchoredIn === `${MONTH}-06`));
+
+check('a 12-week call is graded from its own facts, and a miss counts like a hit',
+  doc.retention.graded === 3 && doc.retention.kept === 1 && doc.retention.athletes === 2);
+check('a phone verdict the facts contradict is published as a disagreement',
+  doc.retention.phoneVerdictsThatDisagreedWithThisGrading === 1);
+check('a 12-week call never enters the prediction rate', doc.graded === 4 && doc.rate === 0.75);
+check('a malformed 12-week call is disclosed, never counted, and never called a malformed prediction',
+  doc.notGraded.retentionMalformed === 1 && doc.notGraded.malformed === 0);
+check('a call whose fingerprint appeared on its grade day is disclosed, never graded', doc.notGraded.retentionSealedLate === 1);
+check('every graded 12-week call is published so a stranger can redo it',
+  calls.retention.length === 3 && calls.retention.every(c => c.nonce && c.outcome && c.anchoredIn === `${MONTH}-06`));
 
 const before = fs.readFileSync(path.join(WORK, 'accuracy', `${MONTH}.json`), 'utf8');
 const second = await run(MONTH);

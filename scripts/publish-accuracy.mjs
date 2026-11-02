@@ -36,7 +36,7 @@
 import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
-import { promiseVerdict, PROMISE_BANDS } from './promise-verdict.mjs';
+import { promiseVerdict, retentionVerdict, PROMISE_BANDS } from './promise-verdict.mjs';
 
 const API = process.env.OS_ANCHOR_API || 'https://api.orderedstrength.com';
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
@@ -123,6 +123,12 @@ const DECLINE_REASONS = new Set(['neverSeen', 'bodyweight', 'longGap', 'deload',
 const declinedCalls = [];
 const declinedByReason = {};
 let declinesMalformed = 0;
+// PROTOCOL 5 (2026-11-02): 12-week strength calls. They are filed under the month after their grade day, because their sealed
+// month was published long before they came due. Counted on their own: never inside the prediction rate, which measures a
+// different claim.
+const retention = [];
+const retentionAthletes = new Set();
+let retentionMalformed = 0, retentionSealedLate = 0, retentionVerdictsDisagreed = 0;
 
 for (const r of body.reveals) {
   if (!r || !Array.isArray(r.fields) || !HEX64.test(String(r.nonce || '')) ||
@@ -143,6 +149,20 @@ for (const r of body.reveals) {
     }
     declinedByReason[reason] = (declinedByReason[reason] || 0) + 1;
     declinedCalls.push({ commitment: r.commitment, anchoredIn: day, fields: r.fields, nonce: r.nonce, reason });
+    continue;
+  }
+  if (field('protocol') === '5') {
+    const verdict = retentionVerdict(field, r.outcome);
+    if (!verdict) { retentionMalformed++; continue; }
+    // A call whose fingerprint first appears on or after its own grade day proves nothing: it could have been made knowing the result.
+    const gradeOn = Number(field('gradeOn')) * 1000;
+    if (!Number.isFinite(gradeOn) || Date.parse(`${day}T00:00:00Z`) >= gradeOn) { retentionSealedLate++; continue; }
+    if (String(r.actual) !== (verdict.kept ? '1' : '0')) retentionVerdictsDisagreed++;
+    retentionAthletes.add(r.athlete);
+    retention.push({
+      commitment: r.commitment, anchoredIn: day, fields: r.fields, nonce: r.nonce,
+      outcome: r.outcome, keepPercent: verdict.keepPercent, kept: verdict.kept,
+    });
     continue;
   }
   if (field('protocol') === '2') {
@@ -176,10 +196,10 @@ for (const r of body.reveals) {
   });
 }
 
-if (calls.length === 0 && promises.length === 0 && declinedCalls.length === 0) {
+if (calls.length === 0 && promises.length === 0 && declinedCalls.length === 0 && retention.length === 0) {
   done(`Nothing to publish for ${month}: no reveal could be graded ` +
        `(${unanchored} not anchored, ${mismatched} did not recompute, ${ungradeable} malformed, ` +
-       `${promisesUntested} promises untested).`);
+       `${promisesUntested} promises untested, ${retentionMalformed + retentionSealedLate} 12-week calls not graded).`);
 }
 
 // Calibration: for each band of stated sureness, how many promises were graded and how many came true.
@@ -205,7 +225,8 @@ const document = {
   // 🔒 NEVER OMITTED. See the header: the rate without this number reads as a crowd.
   athletes: athletes.size,
   // Stated so nobody has to ask what was thrown away and why.
-  notGraded: { unanchored, didNotRecompute: mismatched, malformed: ungradeable, promisesUntested, declinesMalformed },
+  notGraded: { unanchored, didNotRecompute: mismatched, malformed: ungradeable, promisesUntested, declinesMalformed,
+               retentionMalformed, retentionSealedLate },
   // PROTOCOL 3. The calls Jerry declined to make, by reason. Absent-by-zero is still stated.
   declined: { total: declinedCalls.length, byReason: declinedByReason },
   // PROTOCOL 2. Absent-by-zero is still stated, so a month without promises says so.
@@ -216,14 +237,22 @@ const document = {
     calibration: promiseCalibration,
     phoneVerdictsThatDisagreedWithThisGrading: promiseVerdictsDisagreed,
   },
+  // PROTOCOL 5. Absent-by-zero is still stated, and a miss counts exactly as a hit does.
+  retention: {
+    graded: retention.length,
+    kept: retention.filter(c => c.kept).length,
+    athletes: retentionAthletes.size,
+    phoneVerdictsThatDisagreedWithThisGrading: retentionVerdictsDisagreed,
+  },
 };
 
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, JSON.stringify(document, null, 2) + '\n');
 // The graded calls themselves, so the rate above can be recomputed by anyone, including the
 // fingerprint check against this repository's own published days.
-fs.writeFileSync(callsPath, JSON.stringify({ month, scheme: SCHEME, calls, promises, declinedCalls }, null, 2) + '\n');
+fs.writeFileSync(callsPath, JSON.stringify({ month, scheme: SCHEME, calls, promises, declinedCalls, retention }, null, 2) + '\n');
 
 console.log(`Published ${month}: ${within} of ${calls.length} inside the band ` +
             `(${calls.length ? (document.rate * 100).toFixed(1) : '0.0'}%), ${athletes.size} athlete(s); ` +
-            `${document.promises.kept} of ${promises.length} promises kept; ${declinedCalls.length} calls declined.`);
+            `${document.promises.kept} of ${promises.length} promises kept; ${declinedCalls.length} calls declined; ` +
+            `${document.retention.kept} of ${retention.length} 12-week calls kept.`);
