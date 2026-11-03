@@ -1,17 +1,16 @@
 # OrderedStrength, receipts
 
-**One root hash per day. Nothing else lives here.**
+This repository holds one root hash per day, the fingerprints behind it, and the monthly grades.
 
 OrderedStrength is a strength coach that writes down what it expects to happen **before** you
-train, seals that prediction, and then grades itself against what actually happened. This
-repository is the part of that promise you do not have to take our word for.
+train, seals that prediction, and then grades itself against what happened. This repository lets you check that without taking our word for it.
 
 ## What a file here proves, and what it does not
 
 Each daily file contains a single root hash covering every fingerprint this record received on
 that day. Because this repository is public, a root published for a given day is a public commit:
 the job that writes it refuses to touch a date that already holds a file, so a root that changed
-would be a visible change to this repository's history rather than a quiet edit.
+would be a visible change in this repository's history.
 
 That gives you two separate things:
 
@@ -20,19 +19,16 @@ That gives you two separate things:
 | Was this prediction edited after the result was known? | The receipt itself. Check it at [orderedstrength.com/verify](https://www.orderedstrength.com/verify/) |
 | Was the prediction already public before anyone could know the answer? | The daily root here, and GitHub's record of when it was pushed |
 
-**Neither claim rests on trusting us.** The first is arithmetic you can rerun. The second is a
-timestamp from a third party.
+You can check both without trusting us. The first is arithmetic you can rerun, and the second is a timestamp from GitHub.
 
-**And the second one dates a prediction to the day, not to the hour.** A day closes at midnight
+The timestamp only dates a prediction to the day. A day closes at midnight
 UTC and its root is pushed in the small hours after it, so a prediction and the set it was made
 for fall inside the same published day. That rules out a prediction invented after the result and
-slipped into a day that is already public. It does not, on its own, order the seal against the
-set. Both halves are here because only the first one flatters us.
+slipped into a day that is already public. It cannot show on its own whether the seal came before the set.
 
 ## What `count` means, exactly
 
-`count` is the number of fingerprints in that day's tree. It is **not** the number of predictions
-made that day, and the difference is not an edge case.
+`count` is the number of fingerprints in that day's tree. It is different from the number of predictions made that day.
 
 A phone keeps re-sending a fingerprint until it has seen it published, which is what lets our
 server hold the open day in memory with no database: a restart costs a retry rather than a lost
@@ -41,29 +37,24 @@ before and re-sent inside that gap lands in the new day's tree as well. On the f
 this record, every one of the 21 fingerprints published for 2026-09-05 also appears in the 57
 published for 2026-09-06. Two published days, 57 distinct fingerprints, not 78.
 
-Nothing is double-counted in any claim we make, because we make no claim from these totals. They
-say what they say: how many fingerprints are in that tree.
+We make no claim from these totals. They only say how many fingerprints are in that tree.
 
 ## What is NOT here
 
-No training data. No sets, weights, reps, bodyweights, names, or anything identifying any person.
+There is no training data here: no sets, weights, reps, bodyweights, names, or anything identifying any person.
 A root hash is a fixed-length fingerprint: it can confirm that something matches, and it cannot be
 turned back into what it came from.
 
 ## Current status
 
 **Running.** The record starts on the date in `.anchor-start` and has published a root for every
-closed day that carried anything since. Read `anchors/` for the current state rather than this
-paragraph: a status line maintained by hand is a status line that goes stale, and the folder
-cannot.
+closed day that carried anything since. Read `anchors/` for the current state.
 
 The publishing path is a scheduled job in this repository. It reads one closed day from our
 server, recomputes that day's root from its own fingerprint list with its own independent
 implementation, and refuses to publish if the two disagree. It also refuses to rewrite a day it
 has already published, to publish a day that is still open, and to reach back before
-`.anchor-start`. It runs here rather than on our server on purpose: a write token on our server
-would mean anyone who compromised it could rewrite this record, and the third-party timestamp
-would then be worth no more than our own word.
+`.anchor-start`. It runs here because a write token on our server would let anyone who compromised it rewrite this record.
 
 ## What you will find here
 
@@ -75,7 +66,7 @@ would then be worth no more than our own word.
 
 ## Rebuilding a root yourself
 
-The leaf list is here so that you do not have to trust us or our server for any part of the check.
+The leaf list is here so you can run the whole check yourself.
 These four rules turn `leaves/YYYY-MM-DD.txt` back into the root in `anchors/YYYY-MM-DD.json`, and
 nothing else is needed. The scheme is named in every anchor file as `os-merkle-v1-sha256`.
 
@@ -88,9 +79,7 @@ nothing else is needed. The scheme is named in every anchor file as `os-merkle-v
 
 Repeat 3 and 4 until one node is left. That node is the root.
 
-Rule 4 is the one worth reading twice. Duplicating a lone node is the common convention and it is
-the one that lets two different lists produce the same root, so this record does not use it. If
-you assume it, you will get a different number and conclude we lied: on `2026-09-05`, duplicating
+Watch rule 4. Duplicating a lone node is the common convention, but it lets two different lists produce the same root, so this record does not use it. If you duplicate, you will get a different number: on `2026-09-05`, duplicating
 gives `20f00e4a...` where this repository publishes `480aeaaa...`.
 
 The same four rules are published at
@@ -98,8 +87,7 @@ The same four rules are published at
 [orderedstrength.com/verify](https://www.orderedstrength.com/verify/) will do the walk in your own
 browser for a receipt you paste.
 
-Publishing a partial or backdated history would defeat the only thing this repository is for, so
-the record starts on the day it starts, and the gap before it is stated rather than hidden.
+Backdating would prove nothing, so the record starts on the date in `.anchor-start` and nothing before it is published.
 
 ## License
 
@@ -108,8 +96,7 @@ the fingerprints, the monthly grades, and the scripts that publish and check the
 run, copy, change and share them, as long as you keep the copyright line in [NOTICE](NOTICE) and
 the license with them. There is no warranty.
 
-We chose this on purpose. A record is only worth something if strangers can check it, so anyone may
-run these scripts on their own computer, or write their own checker from the rules above.
+Anyone may run these scripts on their own computer, or write their own checker from the rules above.
 
 The OrderedStrength app is not in this repository, and this license does not cover it.
 
